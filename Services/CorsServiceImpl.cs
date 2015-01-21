@@ -4,14 +4,14 @@ using System.Linq;
 
 namespace CSM.Security.Services
 {
-    class CorsService : ICorsService
+    class CorsServiceImpl : ICorsService
     {
         private readonly bool _allowsAnyOrigin;
         private readonly bool _allowsAnyMethod;
         private readonly IEnumerable<string> _allowedOrigins;
         private readonly IEnumerable<string> _allowedMethods;
 
-        public CorsService(string origins, string methods)
+        public CorsServiceImpl(string origins, string methods)
         {
             if (origins == "*")
                 _allowsAnyOrigin = true;

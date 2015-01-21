@@ -6,7 +6,7 @@ using CSM.Security.Services;
 namespace CSM.Security.Filters
 {
     /// <summary>
-    /// Action filter to enable the decorated controller/action(s) to be accessed via cross-domain javascript.
+    /// Filter to enable the decorated controller/action(s) to be accessed via cross-domain javascript.
     /// </summary>
     public class EnableCorsAttribute : ActionFilterAttribute
     {
@@ -24,7 +24,7 @@ namespace CSM.Security.Filters
         /// <param name="methods">A comma separated list of allowed HTTP methods (or * to allow any method)</param>
         public EnableCorsAttribute(string origins, string methods)
         {
-            _corsService = new CorsService(origins, methods);
+            _corsService = new CorsServiceImpl(origins, methods);
         }
 
         /// <summary>

@@ -4,23 +4,25 @@ using Orchard.Security;
 
 namespace CSM.Security.Services
 {
+    /// <summary>
+    /// A service definition for performing HTTP Basic authentication.
+    /// </summary>
     public interface IBasicAuthenticationService : IDependency
     {
         /// <summary>
-        /// Returns the basic authentication credentials available in the current request.
+        /// Gets the basic authentication credentials in the current request.
         /// </summary>
         /// <returns>The credentials or null if there are no credentials.</returns>
         BasicAuthenticationCredentials GetRequestCredentials();
 
         /// <summary>
-        /// Tries to get the Orchard user corresponding to the basic authentication credentials.
+        /// Gets the Orchard user corresponding to the basic authentication credentials in the current request.
         /// </summary>
         /// <returns>The matching user if found or null if not.</returns>
         IUser GetUserForRequest();
 
         /// <summary>
-        /// Sets the authenticated user for the current request if the user could be authenticated
-        /// with the basic auth credentials.
+        /// Sets the authenticated user for the current request.
         /// </summary>
         /// <returns>True if the authentication was successful, false if not.</returns>
         bool SetAuthenticatedUserForRequest();
