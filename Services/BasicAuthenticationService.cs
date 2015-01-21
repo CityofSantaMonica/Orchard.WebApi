@@ -22,7 +22,7 @@ namespace CSM.Security.Services
             _authenticationService = authenticationService;
         }
 
-        public IBasicAuthenticationCredentials GetRequestCredentials()
+        public BasicAuthenticationCredentials GetRequestCredentials()
         {
             var header = _hca.Current().Request.Headers["Authorization"];
 

@@ -9,11 +9,11 @@ namespace CSM.Security.Services
         /// <summary>
         /// Returns the basic authentication credentials available in the current request.
         /// </summary>
-        /// <returns>The credentials or null if there are no credentials</returns>
-        IBasicAuthenticationCredentials GetRequestCredentials();
+        /// <returns>The credentials or null if there are no credentials.</returns>
+        BasicAuthenticationCredentials GetRequestCredentials();
 
         /// <summary>
-        /// Tries to get the user corresponding to the basic auth credentials.
+        /// Tries to get the Orchard user corresponding to the basic authentication credentials.
         /// </summary>
         /// <returns>The matching user if found or null if not.</returns>
         IUser GetUserForRequest();
