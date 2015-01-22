@@ -87,14 +87,11 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Filters\EnableCorsAttribute.cs" />
     <Compile Include="Filters\RequirePermissionsAttribute.cs" />
     <Compile Include="Filters\RequireBasicAuthenticationAttribute.cs" />
     <Compile Include="Models\BasicAuthenticationCredentials.cs" />
-    <Compile Include="Services\CorsServiceImpl.cs" />
     <Compile Include="Services\BasicAuthenticationService.cs" />
     <Compile Include="Services\IBasicAuthenticationService.cs" />
-    <Compile Include="Services\ICorsService.cs" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
