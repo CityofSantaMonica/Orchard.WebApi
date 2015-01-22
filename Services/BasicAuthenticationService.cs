@@ -1,38 +1,32 @@
 ﻿using System;
+using System.Net.Http.Headers;
 using System.Text;
 using CSM.Security.Models;
-using Orchard.Mvc;
 using Orchard.Security;
 
 namespace CSM.Security.Services
 {
     public class BasicAuthenticationService : IBasicAuthenticationService
     {
-        private readonly IHttpContextAccessor _hca;
         private readonly IMembershipService _membershipService;
         private readonly IAuthenticationService _authenticationService;
 
         public BasicAuthenticationService(
-            IHttpContextAccessor hca,
             IMembershipService membershipService,
             IAuthenticationService authenticationService)
         {
-            _hca = hca;
             _membershipService = membershipService;
             _authenticationService = authenticationService;
         }
 
-        public BasicAuthenticationCredentials GetRequestCredentials()
+        public BasicAuthenticationCredentials GetCredentials(AuthenticationHeaderValue header)
         {
-            var header = _hca.Current().Request.Headers["Authorization"];
-
-            if (String.IsNullOrEmpty(header) ||
-                !header.StartsWith("basic", StringComparison.OrdinalIgnoreCase))
+            if (header == null || header.Scheme != "Basic" || String.IsNullOrEmpty(header.Parameter))
             {
                 return null;
             }
 
-            var credentials = UTF8Encoding.UTF8.GetString(Convert.FromBase64String(header.Substring(6)));
+            var credentials = UTF8Encoding.UTF8.GetString(Convert.FromBase64String(header.Parameter));
             int separatorIndex = credentials.IndexOf(':');
 
             if (separatorIndex < 0)
@@ -44,25 +38,21 @@ namespace CSM.Security.Services
             };
         }
 
-        public IUser GetUserForRequest()
+        public IUser GetUserForCredentials(BasicAuthenticationCredentials credentials)
         {
-            var credentials = GetRequestCredentials();
-
             if (credentials == null)
                 return null;
 
             return _membershipService.ValidateUser(credentials.Username, credentials.Password);
         }
 
-        public bool SetAuthenticatedUserForRequest()
+        public bool SetAuthenticatedUserForRequest(IUser user)
         {
-            var user = GetUserForRequest();
-
             if (user == null)
                 return false;
-            
+
             _authenticationService.SetAuthenticatedUserForRequest(user);
-            
+
             return true;
         }
     }

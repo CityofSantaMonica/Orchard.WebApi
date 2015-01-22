@@ -87,12 +87,15 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Filters\RequirePermissionsAttribute.cs" />
-    <Compile Include="Filters\RequireBasicAuthenticationAttribute.cs" />
+    <Compile Include="Models\AddChallengeOnUnauthorizedResult.cs" />
+    <Compile Include="Models\AuthenticationFailureResult.cs" />
+    <Compile Include="Filters\Http\RequireBasicAuthenticationAttribute.cs" />
+    <Compile Include="Filters\Http\RequirePermissionsAttribute.cs" />
     <Compile Include="Models\BasicAuthenticationCredentials.cs" />
     <Compile Include="Services\BasicAuthenticationService.cs" />
     <Compile Include="Services\IBasicAuthenticationService.cs" />
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
