@@ -1,4 +1,5 @@
-﻿using System.Net.Http.Headers;
+﻿using System.Net.Http;
+using System.Net.Http.Headers;
 using CSM.Security.Models;
 using Orchard;
 using Orchard.Security;
@@ -27,5 +28,13 @@ namespace CSM.Security.Services
         /// </summary>
         /// <returns>True if the authentication was successful, false if not.</returns>
         bool SetAuthenticatedUserForRequest(IUser user);
+
+        /// <summary>
+        /// Sets the authenticated user from credentials found in the specified request.
+        /// </summary>
+        /// <param name="request">The HttpRequestMessage to be authenticated.</param>
+        /// <param name="workContext">The Orchard WorkContext tied to this <paramref name="request"/>.</param>
+        /// <returns>True if the authentication was successful, false if not.</returns>
+        bool SetAuthenticatedUserForRequest(HttpRequestMessage request, WorkContext workContext);
     }
 }

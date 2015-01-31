@@ -1,7 +1,9 @@
 ﻿using System;
+using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
 using CSM.Security.Models;
+using Orchard;
 using Orchard.Security;
 
 namespace CSM.Security.Services
@@ -40,18 +42,42 @@ namespace CSM.Security.Services
 
         public IUser GetUserForCredentials(BasicAuthenticationCredentials credentials)
         {
-            if (credentials == null)
-                return null;
-
-            return _membershipService.ValidateUser(credentials.Username, credentials.Password);
+            return getUserForCredentials(credentials, _membershipService);
         }
 
         public bool SetAuthenticatedUserForRequest(IUser user)
         {
+            return setAuthenticatedUserForRequest(user, _authenticationService);
+        }
+        
+        public bool SetAuthenticatedUserForRequest(HttpRequestMessage request, WorkContext workContext)
+        {
+            var membershipService = workContext.Resolve<IMembershipService>();
+            var authenticationService = workContext.Resolve<IAuthenticationService>();
+
+            var credentials = GetCredentials(request.Headers.Authorization);
+            var user = getUserForCredentials(credentials, membershipService);
+            return setAuthenticatedUserForRequest(user, authenticationService);
+        }
+
+        private IUser getUserForCredentials(
+            BasicAuthenticationCredentials credentials,
+            IMembershipService membershipService)
+        {
+            if (credentials == null)
+                return null;
+
+            return membershipService.ValidateUser(credentials.Username, credentials.Password);
+        }
+
+        private bool setAuthenticatedUserForRequest(
+            IUser user,
+            IAuthenticationService authenticationService)
+        {
             if (user == null)
                 return false;
 
-            _authenticationService.SetAuthenticatedUserForRequest(user);
+            authenticationService.SetAuthenticatedUserForRequest(user);
 
             return true;
         }
