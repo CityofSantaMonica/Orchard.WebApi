@@ -91,7 +91,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Filters\Http\ModelValidationFilter.cs" />
+    <Compile Include="Filters\Http\ModelValidationAttribute.cs" />
     <Compile Include="Models\AddChallengeOnUnauthorizedResult.cs" />
     <Compile Include="Models\AuthenticationFailureResult.cs" />
     <Compile Include="Filters\Http\RequireBasicAuthenticationAttribute.cs" />

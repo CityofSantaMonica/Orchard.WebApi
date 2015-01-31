@@ -8,11 +8,14 @@ using Orchard.Logging;
 
 namespace CSM.Security.Filters.Http
 {
-    public class ModelValidationFilter : ActionFilterAttribute
+    /// <summary>
+    /// Filter to check the incoming <see cref="ModelState"/> and set an ErrorResponse if invalid.
+    /// </summary>
+    public class ModelValidationAttribute : ActionFilterAttribute
     {
         public ILogger Logger { get; set; }
 
-        public ModelValidationFilter()
+        public ModelValidationAttribute()
         {
             Logger = NullLogger.Instance;
         }
