@@ -4,17 +4,19 @@ using System.Net.Http.Headers;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Web.Http.Filters;
-using CSM.Security.Models;
-using CSM.Security.Services;
+using CSM.WebApi.Models;
+using CSM.WebApi.Services;
 using Orchard;
+using Orchard.Environment.Extensions;
 using Orchard.Logging;
 
-namespace CSM.Security.Filters.Http
+namespace CSM.WebApi.Filters
 {
     /// <summary>
     /// Filter to enforce HTTP Basic authentication for the decorated WebApi controller/action.
     /// </summary>
     [AttributeUsage(AttributeTargets.Class | AttributeTargets.Method)]
+    [OrchardFeature("CSM.WebApi.Security")]
     public class RequireBasicAuthenticationAttribute : Attribute, IAuthenticationFilter
     {
         public ILogger Logger { get; set; }

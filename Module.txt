@@ -1,8 +1,15 @@
-﻿Name: CSM.Security
+﻿Name: CSM.WebApi
 AntiForgery: enabled
 Author: City of Santa Monica
 Website: https://github.com/CityofSantaMonica
 Version: 1.x
 OrchardVersion: 1.x
-Description: Module to support authentication scenarios and securable resources.
-Category: Security
+Category: WebApi
+Features:
+    CSM.WebApi:
+        Description: Helpers and services for creating Web Apis.
+        Category: Api
+    CSM.WebApi.Security:
+        Description: Supports authentication scenarios and securable resources.
+        Category: Security
+        Dependencies: CSM.WebApi

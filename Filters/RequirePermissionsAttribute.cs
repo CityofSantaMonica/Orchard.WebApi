@@ -3,15 +3,17 @@ using System.Linq;
 using System.Web.Http;
 using System.Web.Http.Controllers;
 using Orchard;
+using Orchard.Environment.Extensions;
 using Orchard.Security;
 using Orchard.Security.Permissions;
 
-namespace CSM.Security.Filters.Http
+namespace CSM.WebApi.Filters
 {
     /// <summary>
     /// Filter to require the specified Orchard permission(s) for the decorated WebApi controller/action.
     /// </summary>
     [AttributeUsage(AttributeTargets.Class | AttributeTargets.Method)]
+    [OrchardFeature("CSM.WebApi.Security")]
     public class RequirePermissionsAttribute : AuthorizeAttribute
     {
         private readonly string[] _permissionNames;

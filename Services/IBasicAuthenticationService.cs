@@ -1,14 +1,16 @@
 ﻿using System.Net.Http;
 using System.Net.Http.Headers;
-using CSM.Security.Models;
+using CSM.WebApi.Models;
 using Orchard;
+using Orchard.Environment.Extensions;
 using Orchard.Security;
 
-namespace CSM.Security.Services
+namespace CSM.WebApi.Services
 {
     /// <summary>
     /// A service definition for performing HTTP Basic authentication.
     /// </summary>
+    [OrchardFeature("CSM.WebApi.Security")]
     public interface IBasicAuthenticationService : IDependency
     {
         /// <summary>

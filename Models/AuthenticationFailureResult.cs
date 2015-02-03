@@ -3,9 +3,11 @@ using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Web.Http;
+using Orchard.Environment.Extensions;
 
-namespace CSM.Security.Models
+namespace CSM.WebApi.Models
 {
+    [OrchardFeature("CSM.WebApi.Security")]
     public class AuthenticationFailureResult : IHttpActionResult
     {
         public string ReasonPhrase { get; private set; }

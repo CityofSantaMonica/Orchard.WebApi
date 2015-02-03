@@ -5,9 +5,11 @@ using System.Net.Http.Headers;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Web.Http;
+using Orchard.Environment.Extensions;
 
-namespace CSM.Security.Models
+namespace CSM.WebApi.Models
 {
+    [OrchardFeature("CSM.WebApi.Security")]
     public class AddChallengeOnUnauthorizedResult : IHttpActionResult
     {
         public AuthenticationHeaderValue Challenge { get; private set; }
