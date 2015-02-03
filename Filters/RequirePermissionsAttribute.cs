@@ -12,7 +12,7 @@ namespace CSM.WebApi.Filters
     /// <summary>
     /// Filter to require the specified Orchard permission(s) for the decorated WebApi controller/action.
     /// </summary>
-    [AttributeUsage(AttributeTargets.Class | AttributeTargets.Method)]
+    [AttributeUsage(AttributeTargets.Class | AttributeTargets.Method, AllowMultiple = false)]
     [OrchardFeature("CSM.WebApi.Security")]
     public class RequirePermissionsAttribute : AuthorizeAttribute
     {

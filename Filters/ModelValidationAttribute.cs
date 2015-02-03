@@ -12,8 +12,8 @@ namespace CSM.WebApi.Filters
     /// <summary>
     /// Filter to check the incoming <see cref="ModelState"/> and set an ErrorResponse if invalid.
     /// </summary>
-    [AttributeUsage(AttributeTargets.Method, AllowMultiple = false)]
-    [OrchardFeature("CSM.WebApi.Security")]
+    [AttributeUsage(AttributeTargets.Class | AttributeTargets.Method, AllowMultiple = false)]
+    [OrchardFeature("CSM.WebApi")]
     public class ModelValidationAttribute : ActionFilterAttribute
     {
         public ILogger Logger { get; set; }

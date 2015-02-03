@@ -15,7 +15,7 @@ namespace CSM.WebApi.Filters
     /// <summary>
     /// Filter to enforce HTTP Basic authentication for the decorated WebApi controller/action.
     /// </summary>
-    [AttributeUsage(AttributeTargets.Class | AttributeTargets.Method)]
+    [AttributeUsage(AttributeTargets.Class | AttributeTargets.Method, AllowMultiple = false)]
     [OrchardFeature("CSM.WebApi.Security")]
     public class RequireBasicAuthenticationAttribute : Attribute, IAuthenticationFilter
     {
