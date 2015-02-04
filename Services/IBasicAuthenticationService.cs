@@ -10,7 +10,6 @@ namespace CSM.WebApi.Services
     /// <summary>
     /// A service definition for performing HTTP Basic authentication.
     /// </summary>
-    [OrchardFeature("CSM.WebApi.Security")]
     public interface IBasicAuthenticationService : IDependency
     {
         /// <summary>

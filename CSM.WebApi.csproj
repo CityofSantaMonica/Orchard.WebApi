@@ -91,6 +91,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Filters\CompressResponseAttribute.cs" />
     <Compile Include="Filters\ModelValidationAttribute.cs" />
     <Compile Include="Models\AddChallengeOnUnauthorizedResult.cs" />
     <Compile Include="Models\AuthenticationFailureResult.cs" />
