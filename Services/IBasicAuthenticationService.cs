@@ -1,6 +1,5 @@
 ﻿using System.Net.Http;
 using System.Net.Http.Headers;
-using CSM.WebApi.Models;
 using Orchard;
 using Orchard.Environment.Extensions;
 using Orchard.Security;

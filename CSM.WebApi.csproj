@@ -93,11 +93,11 @@
   <ItemGroup>
     <Compile Include="Filters\CompressResponseAttribute.cs" />
     <Compile Include="Filters\ModelValidationAttribute.cs" />
-    <Compile Include="Models\AddChallengeOnUnauthorizedResult.cs" />
-    <Compile Include="Models\AuthenticationFailureResult.cs" />
+    <Compile Include="Results\AddChallengeOnUnauthorizedResult.cs" />
+    <Compile Include="Results\AuthenticationFailureResult.cs" />
     <Compile Include="Filters\RequireBasicAuthenticationAttribute.cs" />
     <Compile Include="Filters\RequirePermissionsAttribute.cs" />
-    <Compile Include="Models\BasicAuthenticationCredentials.cs" />
+    <Compile Include="BasicAuthenticationCredentials.cs" />
     <Compile Include="Services\BasicAuthenticationService.cs" />
     <Compile Include="Services\IBasicAuthenticationService.cs" />
   </ItemGroup>
