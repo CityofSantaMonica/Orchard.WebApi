@@ -89,10 +89,20 @@
       <Project>{9916839C-39FC-4CEB-A5AF-89CA7E87119F}</Project>
       <Name>Orchard.Core</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Orchard.Fields\Orchard.Fields.csproj">
+      <Project>{3787dde5-e5c8-4841-bda7-dcb325388064}</Project>
+      <Name>Orchard.Fields</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Data\DocumentationMigrations.cs" />
     <Compile Include="Filters\CompressResponseAttribute.cs" />
     <Compile Include="Filters\ModelValidationAttribute.cs" />
+    <Compile Include="Models\EntityDefinitionPart.cs" />
+    <Compile Include="Models\EntityFieldPart.cs" />
+    <Compile Include="Models\ErrorResultPart.cs" />
+    <Compile Include="Models\ResourceEndpointParameterPart.cs" />
+    <Compile Include="Models\ResourceEndpointPart.cs" />
     <Compile Include="Results\AddChallengeOnUnauthorizedResult.cs" />
     <Compile Include="Results\AuthenticationFailureResult.cs" />
     <Compile Include="Filters\RequireBasicAuthenticationAttribute.cs" />
