@@ -1,6 +1,7 @@
 ﻿using CSM.WebApi.Models;
 using Orchard.ContentManagement;
 using Orchard.ContentManagement.Drivers;
+using Orchard.ContentManagement.Handlers;
 using Orchard.Environment.Extensions;
 
 namespace CSM.WebApi.Drivers
@@ -38,6 +39,16 @@ namespace CSM.WebApi.Drivers
         {
             updater.TryUpdateModel(part, Prefix, null, null);
             return Editor(part, shapeHelper);
+        }
+
+        protected override void Exporting(EndpointParameterPart part, ExportContentContext context)
+        {
+            ExportInfoset(part, context);
+        }
+
+        protected override void Importing(EndpointParameterPart part, ImportContentContext context)
+        {
+            ImportInfoset(part, context);
         }
     }
 }
