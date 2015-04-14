@@ -134,7 +134,15 @@
     <Compile Include="Filters\RequirePermissionsAttribute.cs" />
     <Compile Include="BasicAuthenticationCredentials.cs" />
     <Compile Include="Services\BasicAuthenticationService.cs" />
+    <Compile Include="Services\ContentItemExtensions.cs" />
+    <Compile Include="Services\DocumentationService.cs" />
     <Compile Include="Services\IBasicAuthenticationService.cs" />
+    <Compile Include="Services\IDocumentationService.cs" />
+    <Compile Include="ViewModels\EndpointParameter.cs" />
+    <Compile Include="ViewModels\Endpoint.cs" />
+    <Compile Include="ViewModels\EntityDefinition.cs" />
+    <Compile Include="ViewModels\EntityField.cs" />
+    <Compile Include="ViewModels\ErrorResult.cs" />
   </ItemGroup>
   <ItemGroup />
   <PropertyGroup>

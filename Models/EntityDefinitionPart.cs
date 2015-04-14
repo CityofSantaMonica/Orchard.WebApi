@@ -1,8 +1,5 @@
-﻿using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
+﻿using System.ComponentModel.DataAnnotations;
 using Orchard.ContentManagement;
-using Orchard.ContentPicker.Fields;
 using Orchard.Environment.Extensions;
 
 namespace CSM.WebApi.Models
@@ -15,19 +12,6 @@ namespace CSM.WebApi.Models
         {
             get { return this.Retrieve(x => x.ApiName); }
             set { this.Store(x => x.ApiName, value); }
-        }
-
-        public IEnumerable<EntityFieldPart> EntityFieldParts
-        {
-            get
-            {
-                var field = this.Get(typeof(ContentPickerField), "FieldDefinitions") as ContentPickerField;
-                if (field != null)
-                {
-                    return field.ContentItems.Select(item => item.As<EntityFieldPart>());
-                }
-                return Enumerable.Empty<EntityFieldPart>();
-            }
         }
     }
 }
