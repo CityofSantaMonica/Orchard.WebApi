@@ -1,0 +1,43 @@
+﻿using CSM.WebApi.Models;
+using Orchard.ContentManagement;
+using Orchard.ContentManagement.Drivers;
+using Orchard.Environment.Extensions;
+
+namespace CSM.WebApi.Drivers
+{
+    [OrchardFeature("CSM.WebApi.Documentation")]
+    public class EntityFieldPartDriver : ContentPartDriver<EntityFieldPart>
+    {
+        protected override string Prefix
+        {
+            get { return "EntityField"; }
+        }
+
+        protected override DriverResult Display(EntityFieldPart part, string displayType, dynamic shapeHelper)
+        {
+            return Combined(
+                ContentShape("Parts_EntityField", () => shapeHelper.Parts_EntityField()),
+                ContentShape("Parts_EntityField_Summary", () => shapeHelper.Parts_EntityField_Summary()),
+                ContentShape("Parts_EntityField_SummaryAdmin", () => shapeHelper.Parts_EntityField_SummaryAdmin())
+            );
+        }
+
+        protected override DriverResult Editor(EntityFieldPart part, dynamic shapeHelper)
+        {
+            return ContentShape(
+                "Parts_EntityField_Edit",
+                () => shapeHelper.EditorTemplate(
+                    TemplateName: "Parts.EntityField",
+                    Model: part,
+                    Prefix: Prefix
+                )
+            );
+        }
+
+        protected override DriverResult Editor(EntityFieldPart part, IUpdateModel updater, dynamic shapeHelper)
+        {
+            updater.TryUpdateModel(part, Prefix, null, null);
+            return Editor(part, shapeHelper);
+        }
+    }
+}

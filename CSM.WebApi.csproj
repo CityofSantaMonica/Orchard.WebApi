@@ -100,6 +100,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Data\DocumentationMigrations.cs" />
+    <Compile Include="Drivers\ResourceEndpointPartDriver.cs" />
+    <Compile Include="Drivers\ResourceEndpointParameterPartDriver.cs" />
+    <Compile Include="Drivers\ErrorResultPartDriver.cs" />
+    <Compile Include="Drivers\EntityDefinitionPartDriver.cs" />
+    <Compile Include="Drivers\EntityFieldPartDriver.cs" />
     <Compile Include="Filters\CompressResponseAttribute.cs" />
     <Compile Include="Filters\ModelValidationAttribute.cs" />
     <Compile Include="Models\EntityDefinitionPart.cs" />
