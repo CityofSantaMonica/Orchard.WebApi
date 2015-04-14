@@ -7,13 +7,16 @@ OrchardVersion: 1.9
 Category: Api
 Features:
     CSM.WebApi:
+        Name: CSM.WebApi
         Description: Helpers and services for creating Web Apis.
         Category: Api
     CSM.WebApi.Documentation:
+        Name: CSM.WebApi.Documentation
         Description: Definitions supporting the creation of Web Api documentation.
         Category: Content
-        Dependencies: CSM.WebApi, Orchard.ContentPicker
+        Dependencies: CSM.WebApi, Orchard.ContentPicker, Orchard.Fields
     CSM.WebApi.Security:
+        Name: CSM.WebApi.Security
         Description: Supports authentication scenarios and securable resources.
         Category: Security
         Dependencies: CSM.WebApi
