@@ -52,7 +52,7 @@ namespace CSM.WebApi.Data
                     .WithDisplayName("Returns Amount")
                     .WithSetting("EnumerationFieldSettings.Required", "True")
                     .WithSetting("EnumerationFieldSettings.ListMode", "Radiobutton")
-                    .WithSetting("EnumerationFieldSettings.Options", "Single&#xD;&#xA;Collection")
+                    .WithSetting("EnumerationFieldSettings.Options", "Single\r\nCollection")
                 )
             );
 
