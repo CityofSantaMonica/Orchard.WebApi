@@ -13,7 +13,7 @@ namespace CSM.WebApi.Drivers
             get { return "EntityDefinition"; }
         }
 
-        protected override DriverResult Display(EntityFieldPart part, string displayType, dynamic shapeHelper)
+        protected override DriverResult Display(EntityDefinitionPart part, string displayType, dynamic shapeHelper)
         {
             return Combined(
                 ContentShape("Parts_EntityDefinition", () => shapeHelper.Parts_EntityDefinition()),
@@ -22,7 +22,7 @@ namespace CSM.WebApi.Drivers
             );
         }
 
-        protected override DriverResult Editor(EntityFieldPart part, dynamic shapeHelper)
+        protected override DriverResult Editor(EntityDefinitionPart part, dynamic shapeHelper)
         {
             return ContentShape(
                 "Parts_EntityDefinition_Edit",
@@ -34,7 +34,7 @@ namespace CSM.WebApi.Drivers
             );
         }
 
-        protected override DriverResult Editor(EntityFieldPart part, IUpdateModel updater, dynamic shapeHelper)
+        protected override DriverResult Editor(EntityDefinitionPart part, IUpdateModel updater, dynamic shapeHelper)
         {
             updater.TryUpdateModel(part, Prefix, null, null);
             return Editor(part, shapeHelper);
