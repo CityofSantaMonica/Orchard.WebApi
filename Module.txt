@@ -9,6 +9,10 @@ Features:
     CSM.WebApi:
         Description: Helpers and services for creating Web Apis.
         Category: Api
+    CSM.WebApi.Documentation:
+        Description: Definitions supporting the creation of Web Api documentation.
+        Category: Content
+        Dependencies: CSM.WebApi, Orchard.ContentPicker
     CSM.WebApi.Security:
         Description: Supports authentication scenarios and securable resources.
         Category: Security
