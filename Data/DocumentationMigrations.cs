@@ -47,6 +47,13 @@ namespace CSM.WebApi.Data
                     .WithSetting("ContentPickerFieldSettings.ShowContentTab", "True")
                     .WithSetting("ContentPickerFieldSettings.DisplayedContentTypes", "EntityDefinition,ErrorResult")
                 )
+                .WithField("ReturnsAmount", field => field
+                    .OfType("EnumerationField")
+                    .WithDisplayName("Returns Amount")
+                    .WithSetting("EnumerationFieldSettings.Required", "True")
+                    .WithSetting("EnumerationFieldSettings.ListMode", "Radiobutton")
+                    .WithSetting("EnumerationFieldSettings.Options", "Single&#xD;&#xA;Collection")
+                )
             );
 
             ContentDefinitionManager.AlterTypeDefinition("Endpoint", type => type
