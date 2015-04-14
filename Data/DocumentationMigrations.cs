@@ -10,6 +10,52 @@ namespace CSM.WebApi.Data
     {
         public int Create()
         {
+            ContentDefinitionManager.AlterPartDefinition("EndpointParameterPart", part => part
+                .Attachable(false)
+            );
+
+            ContentDefinitionManager.AlterTypeDefinition("EndpointParameter", type => type
+                .DisplayedAs("Endpoint Parameter")
+                .WithPart("CommonPart", part => part
+                    .WithSetting("DateEditorSettings.ShowDateEditor", "False")
+                    .WithSetting("OwnerEditorSettings.ShowOwnerEditor", "False")
+                )
+                .WithPart("IdentityPart")
+                .WithPart("TitlePart")
+                .WithPart("EndpointParameterPart")
+            );
+
+            ContentDefinitionManager.AlterPartDefinition("EndpointPart", part => part
+                .Attachable(false)
+                .WithField("Returns", field => field
+                    .OfType("ContentPickerField")
+                    .WithDisplayName("Returns")
+                    .WithSetting("ContentPickerFieldSettings.Required", "True")
+                    .WithSetting("ContentPickerFieldSettings.Multiple", "True")
+                    .WithSetting("ContentPickerFieldSettings.ShowContentTab", "True")
+                    .WithSetting("ContentPickerFieldSettings.DisplayedContentTypes", "EntityDefinition,ErrorResult")
+                )
+                .WithField("Parameters", field => field
+                    .OfType("ContentPickerField")
+                    .WithDisplayName("Parameters")
+                    .WithSetting("ContentPickerFieldSettings.Required", "True")
+                    .WithSetting("ContentPickerFieldSettings.Multiple", "True")
+                    .WithSetting("ContentPickerFieldSettings.ShowContentTab", "True")
+                    .WithSetting("ContentPickerFieldSettings.DisplayedContentTypes", "EndpointParameter")
+                )
+            );
+
+            ContentDefinitionManager.AlterTypeDefinition("Endpoint", type => type
+                .DisplayedAs("Endpoint")
+                .WithPart("CommonPart", part => part
+                    .WithSetting("DateEditorSettings.ShowDateEditor", "False")
+                    .WithSetting("OwnerEditorSettings.ShowOwnerEditor", "False")
+                )
+                .WithPart("IdentityPart")
+                .WithPart("TitlePart")
+                .WithPart("EndpointPart")
+            );
+
             ContentDefinitionManager.AlterPartDefinition("EntityDefinitionPart", part => part
                 .Attachable(false)
                 .WithField("FieldDefinitions", field => field
@@ -62,52 +108,6 @@ namespace CSM.WebApi.Data
                 .WithPart("IdentityPart")
                 .WithPart("TitlePart")
                 .WithPart("ErrorResultPart")
-            );
-
-            ContentDefinitionManager.AlterPartDefinition("ResourceEndpointParameterPart", part => part
-                .Attachable(false)
-            );
-
-            ContentDefinitionManager.AlterTypeDefinition("ResourceEndpointParameter", type => type
-                .DisplayedAs("Resource Endpoint Parameter")
-                .WithPart("CommonPart", part => part
-                    .WithSetting("DateEditorSettings.ShowDateEditor", "False")
-                    .WithSetting("OwnerEditorSettings.ShowOwnerEditor", "False")
-                )
-                .WithPart("IdentityPart")
-                .WithPart("TitlePart")
-                .WithPart("ResourceEndpointParameterPart")
-            );
-
-            ContentDefinitionManager.AlterPartDefinition("ResourceEndpointPart", part => part
-                .Attachable(false)
-                .WithField("Returns", field => field
-                    .OfType("ContentPickerField")
-                    .WithDisplayName("Returns")
-                    .WithSetting("ContentPickerFieldSettings.Required", "True")
-                    .WithSetting("ContentPickerFieldSettings.Multiple", "True")
-                    .WithSetting("ContentPickerFieldSettings.ShowContentTab", "True")
-                    .WithSetting("ContentPickerFieldSettings.DisplayedContentTypes", "EntityDefinition,ErrorResult")
-                )
-                .WithField("Parameters", field => field
-                    .OfType("ContentPickerField")
-                    .WithDisplayName("Parameters")
-                    .WithSetting("ContentPickerFieldSettings.Required", "True")
-                    .WithSetting("ContentPickerFieldSettings.Multiple", "True")
-                    .WithSetting("ContentPickerFieldSettings.ShowContentTab", "True")
-                    .WithSetting("ContentPickerFieldSettings.DisplayedContentTypes", "ResourceEndpointParameter")
-                )
-            );
-
-            ContentDefinitionManager.AlterTypeDefinition("ResourceEndpoint", type => type
-                .DisplayedAs("Resource Endpoint")
-                .WithPart("CommonPart", part => part
-                    .WithSetting("DateEditorSettings.ShowDateEditor", "False")
-                    .WithSetting("OwnerEditorSettings.ShowOwnerEditor", "False")
-                )
-                .WithPart("IdentityPart")
-                .WithPart("TitlePart")
-                .WithPart("ResourceEndpointPart")
             );
 
             return 1;

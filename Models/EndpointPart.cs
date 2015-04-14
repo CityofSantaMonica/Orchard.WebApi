@@ -8,7 +8,7 @@ using Orchard.Environment.Extensions;
 namespace CSM.WebApi.Models
 {
     [OrchardFeature("CSM.WebApi.Documentation")]
-    public class ResourceEndpointPart : ContentPart
+    public class EndpointPart : ContentPart
     {
         [Required]
         public string Verb
@@ -50,16 +50,16 @@ namespace CSM.WebApi.Models
             }
         }
 
-        public IEnumerable<ResourceEndpointParameterPart> ResourceEndpointParameterParts
+        public IEnumerable<EndpointParameterPart> EndpointParameterParts
         {
             get
             {
                 var field = getContentPicker("Parameters");
                 if (field != null)
                 {
-                    return field.ContentItems.Select(item => item.As<ResourceEndpointParameterPart>());
+                    return field.ContentItems.Select(item => item.As<EndpointParameterPart>());
                 }
-                return Enumerable.Empty<ResourceEndpointParameterPart>();
+                return Enumerable.Empty<EndpointParameterPart>();
             }
         }
 

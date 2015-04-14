@@ -5,7 +5,7 @@ using Orchard.Environment.Extensions;
 namespace CSM.WebApi.Models
 {
     [OrchardFeature("CSM.WebApi.Documentation")]
-    public class ResourceEndpointParameterPart : ContentPart
+    public class EndpointParameterPart : ContentPart
     {
         [Required]
         public string ApiName

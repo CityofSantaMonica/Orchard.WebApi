@@ -100,8 +100,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Data\DocumentationMigrations.cs" />
-    <Compile Include="Drivers\ResourceEndpointPartDriver.cs" />
-    <Compile Include="Drivers\ResourceEndpointParameterPartDriver.cs" />
+    <Compile Include="Drivers\EndpointPartDriver.cs" />
+    <Compile Include="Drivers\EndpointParameterPartDriver.cs" />
     <Compile Include="Drivers\ErrorResultPartDriver.cs" />
     <Compile Include="Drivers\EntityDefinitionPartDriver.cs" />
     <Compile Include="Drivers\EntityFieldPartDriver.cs" />
@@ -110,8 +110,8 @@
     <Compile Include="Models\EntityDefinitionPart.cs" />
     <Compile Include="Models\EntityFieldPart.cs" />
     <Compile Include="Models\ErrorResultPart.cs" />
-    <Compile Include="Models\ResourceEndpointParameterPart.cs" />
-    <Compile Include="Models\ResourceEndpointPart.cs" />
+    <Compile Include="Models\EndpointParameterPart.cs" />
+    <Compile Include="Models\EndpointPart.cs" />
     <Compile Include="Results\AddChallengeOnUnauthorizedResult.cs" />
     <Compile Include="Results\AuthenticationFailureResult.cs" />
     <Compile Include="Filters\RequireBasicAuthenticationAttribute.cs" />
@@ -120,7 +120,6 @@
     <Compile Include="Services\BasicAuthenticationService.cs" />
     <Compile Include="Services\IBasicAuthenticationService.cs" />
   </ItemGroup>
-  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

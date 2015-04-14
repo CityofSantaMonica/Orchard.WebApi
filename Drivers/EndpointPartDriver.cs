@@ -6,28 +6,28 @@ using Orchard.Environment.Extensions;
 namespace CSM.WebApi.Drivers
 {
     [OrchardFeature("CSM.WebApi.Documentation")]
-    public class ResourceEndpointPartDriver : ContentPartDriver<ResourceEndpointPart>
+    public class EndpointPartDriver : ContentPartDriver<EndpointPart>
     {
         protected override string Prefix
         {
-            get { return "ResourceEndpoint"; }
+            get { return "Endpoint"; }
         }
 
         protected override DriverResult Display(EntityFieldPart part, string displayType, dynamic shapeHelper)
         {
             return Combined(
-                ContentShape("Parts_ResourceEndpoint", () => shapeHelper.Parts_ResourceEndpoint()),
-                ContentShape("Parts_ResourceEndpoint_Summary", () => shapeHelper.Parts_ResourceEndpoint_Summary()),
-                ContentShape("Parts_ResourceEndpoint_SummaryAdmin", () => shapeHelper.Parts_ResourceEndpoint_SummaryAdmin())
+                ContentShape("Parts_Endpoint", () => shapeHelper.Parts_Endpoint()),
+                ContentShape("Parts_Endpoint_Summary", () => shapeHelper.Parts_Endpoint_Summary()),
+                ContentShape("Parts_Endpoint_SummaryAdmin", () => shapeHelper.Parts_Endpoint_SummaryAdmin())
             );
         }
 
         protected override DriverResult Editor(EntityFieldPart part, dynamic shapeHelper)
         {
             return ContentShape(
-                "Parts_ResourceEndpoint_Edit",
+                "Parts_Endpoint_Edit",
                 () => shapeHelper.EditorTemplate(
-                    TemplateName: "Parts.ResourceEndpoint",
+                    TemplateName: "Parts.Endpoint",
                     Model: part,
                     Prefix: Prefix
                 )
