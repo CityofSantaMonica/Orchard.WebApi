@@ -1,4 +1,5 @@
 ﻿using CSM.WebApi.Models;
+using CSM.WebApi.Services;
 using Orchard.ContentManagement;
 using Orchard.ContentManagement.Drivers;
 using Orchard.ContentManagement.Handlers;
@@ -9,6 +10,13 @@ namespace CSM.WebApi.Drivers
     [OrchardFeature("CSM.WebApi.Documentation")]
     public class EndpointPartDriver : ContentPartDriver<EndpointPart>
     {
+        private readonly IDocumentationService _documentationService;
+
+        public EndpointPartDriver(IDocumentationService documentationService)
+        {
+            _documentationService = documentationService;
+        }
+
         protected override string Prefix
         {
             get { return "Endpoint"; }
@@ -17,8 +25,10 @@ namespace CSM.WebApi.Drivers
         protected override DriverResult Display(EndpointPart part, string displayType, dynamic shapeHelper)
         {
             return Combined(
-                ContentShape("Parts_Endpoint", () => shapeHelper.Parts_Endpoint()),
-                ContentShape("Parts_Endpoint_Summary", () => shapeHelper.Parts_Endpoint_Summary()),
+                ContentShape(
+                    "Parts_Endpoint",
+                    () => shapeHelper.Parts_Endpoint(Endpoint: _documentationService.ToViewModel(part))
+                ),
                 ContentShape("Parts_Endpoint_SummaryAdmin", () => shapeHelper.Parts_Endpoint_SummaryAdmin())
             );
         }

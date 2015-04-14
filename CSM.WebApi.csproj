@@ -95,6 +95,16 @@
     <Content Include="Web.config" />
     <Content Include="Properties\AssemblyInfo.cs" />
     <Content Include="Module.txt" />
+    <Content Include="Views\Parts.EntityDefinition.cshtml" />
+    <Content Include="Views\Parts.EntityField.cshtml" />
+    <Content Include="Views\Parts.Endpoint.cshtml" />
+    <Content Include="Views\Parts.EndpointParameter.cshtml" />
+    <Content Include="Views\Parts.ErrorResult.cshtml" />
+    <Content Include="Views\Parts.Endpoint.SummaryAdmin.cshtml" />
+    <Content Include="Views\Parts.EndpointParameter.SummaryAdmin.cshtml" />
+    <Content Include="Views\Parts.EntityDefinition.SummaryAdmin.cshtml" />
+    <Content Include="Views\Parts.EntityField.SummaryAdmin.cshtml" />
+    <Content Include="Views\Parts.ErrorResult.SummaryAdmin.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\..\Orchard\Orchard.Framework.csproj">

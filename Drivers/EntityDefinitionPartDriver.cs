@@ -1,4 +1,5 @@
 ﻿using CSM.WebApi.Models;
+using CSM.WebApi.Services;
 using Orchard.ContentManagement;
 using Orchard.ContentManagement.Drivers;
 using Orchard.ContentManagement.Handlers;
@@ -9,6 +10,13 @@ namespace CSM.WebApi.Drivers
     [OrchardFeature("CSM.WebApi.Documentation")]
     public class EntityDefinitionPartDriver : ContentPartDriver<EntityDefinitionPart>
     {
+        private readonly IDocumentationService _documentationService;
+
+        public EntityDefinitionPartDriver(IDocumentationService documentationService)
+        {
+            _documentationService = documentationService;
+        }
+
         protected override string Prefix
         {
             get { return "EntityDefinition"; }
@@ -17,8 +25,10 @@ namespace CSM.WebApi.Drivers
         protected override DriverResult Display(EntityDefinitionPart part, string displayType, dynamic shapeHelper)
         {
             return Combined(
-                ContentShape("Parts_EntityDefinition", () => shapeHelper.Parts_EntityDefinition()),
-                ContentShape("Parts_EntityDefinition_Summary", () => shapeHelper.Parts_EntityDefinition_Summary()),
+                ContentShape(
+                    "Parts_EntityDefinition",
+                    () => shapeHelper.Parts_EntityDefinition(EntityDefinition: _documentationService.ToViewModel(part))
+                ),
                 ContentShape("Parts_EntityDefinition_SummaryAdmin", () => shapeHelper.Parts_EntityDefinition_SummaryAdmin())
             );
         }
