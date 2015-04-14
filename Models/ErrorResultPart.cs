@@ -9,9 +9,9 @@ namespace CSM.WebApi.Models
     {
         [Required]
         [Range(400, 499)]
-        public int Code
+        public int? Code
         {
-            get { return this.Retrieve(x => x.Code, 400); }
+            get { return this.Retrieve(x => x.Code); }
             set { this.Store(x => x.Code, value); }
         }
 
@@ -20,13 +20,6 @@ namespace CSM.WebApi.Models
         {
             get { return this.Retrieve(x => x.ReasonPhrase); }
             set { this.Store(x => x.ReasonPhrase, value); }
-        }
-
-        [Required]
-        public string Explanation
-        {
-            get { return this.Retrieve(x => x.Explanation); }
-            set { this.Store(x => x.Explanation, value); }
         }
     }
 }

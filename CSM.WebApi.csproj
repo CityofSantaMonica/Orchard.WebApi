@@ -76,6 +76,22 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Placement.info" />
+    <Content Include="Views\EditorTemplates\Parts.Endpoint.cshtml">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="Views\EditorTemplates\Parts.EndpointParameter.cshtml">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="Views\EditorTemplates\Parts.EntityDefinition.cshtml">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="Views\EditorTemplates\Parts.EntityField.cshtml">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="Views\EditorTemplates\Parts.ErrorResult.cshtml">
+      <SubType>Code</SubType>
+    </Content>
     <Content Include="Web.config" />
     <Content Include="Properties\AssemblyInfo.cs" />
     <Content Include="Module.txt" />
@@ -120,6 +136,7 @@
     <Compile Include="Services\BasicAuthenticationService.cs" />
     <Compile Include="Services\IBasicAuthenticationService.cs" />
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

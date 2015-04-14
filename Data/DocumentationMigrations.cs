@@ -15,6 +15,9 @@ namespace CSM.WebApi.Data
             );
 
             ContentDefinitionManager.AlterTypeDefinition("EndpointParameter", type => type
+                .Creatable()
+                .Draftable()
+                .Listable()
                 .DisplayedAs("Endpoint Parameter")
                 .WithPart("CommonPart", part => part
                     .WithSetting("DateEditorSettings.ShowDateEditor", "False")
@@ -22,11 +25,20 @@ namespace CSM.WebApi.Data
                 )
                 .WithPart("IdentityPart")
                 .WithPart("TitlePart")
+                .WithPart("BodyPart")
                 .WithPart("EndpointParameterPart")
             );
 
             ContentDefinitionManager.AlterPartDefinition("EndpointPart", part => part
                 .Attachable(false)
+                .WithField("Parameters", field => field
+                    .OfType("ContentPickerField")
+                    .WithDisplayName("Parameters")
+                    .WithSetting("ContentPickerFieldSettings.Required", "False")
+                    .WithSetting("ContentPickerFieldSettings.Multiple", "True")
+                    .WithSetting("ContentPickerFieldSettings.ShowContentTab", "True")
+                    .WithSetting("ContentPickerFieldSettings.DisplayedContentTypes", "EndpointParameter")
+                )
                 .WithField("Returns", field => field
                     .OfType("ContentPickerField")
                     .WithDisplayName("Returns")
@@ -35,17 +47,12 @@ namespace CSM.WebApi.Data
                     .WithSetting("ContentPickerFieldSettings.ShowContentTab", "True")
                     .WithSetting("ContentPickerFieldSettings.DisplayedContentTypes", "EntityDefinition,ErrorResult")
                 )
-                .WithField("Parameters", field => field
-                    .OfType("ContentPickerField")
-                    .WithDisplayName("Parameters")
-                    .WithSetting("ContentPickerFieldSettings.Required", "True")
-                    .WithSetting("ContentPickerFieldSettings.Multiple", "True")
-                    .WithSetting("ContentPickerFieldSettings.ShowContentTab", "True")
-                    .WithSetting("ContentPickerFieldSettings.DisplayedContentTypes", "EndpointParameter")
-                )
             );
 
             ContentDefinitionManager.AlterTypeDefinition("Endpoint", type => type
+                .Creatable()
+                .Draftable()
+                .Listable()
                 .DisplayedAs("Endpoint")
                 .WithPart("CommonPart", part => part
                     .WithSetting("DateEditorSettings.ShowDateEditor", "False")
@@ -69,6 +76,9 @@ namespace CSM.WebApi.Data
             );
 
             ContentDefinitionManager.AlterTypeDefinition("EntityDefinition", type => type
+                .Creatable()
+                .Draftable()
+                .Listable()
                 .DisplayedAs("Entity Definition")
                 .WithPart("CommonPart", part => part
                     .WithSetting("DateEditorSettings.ShowDateEditor", "False")
@@ -85,6 +95,9 @@ namespace CSM.WebApi.Data
             );
 
             ContentDefinitionManager.AlterTypeDefinition("EntityField", type => type
+                .Creatable()
+                .Draftable()
+                .Listable()
                 .DisplayedAs("Entity Field")
                 .WithPart("CommonPart", part => part
                     .WithSetting("DateEditorSettings.ShowDateEditor", "False")
@@ -92,6 +105,7 @@ namespace CSM.WebApi.Data
                 )
                 .WithPart("IdentityPart")
                 .WithPart("TitlePart")
+                .WithPart("BodyPart")
                 .WithPart("EntityFieldPart")
             );
 
@@ -100,6 +114,9 @@ namespace CSM.WebApi.Data
             );
 
             ContentDefinitionManager.AlterTypeDefinition("ErrorResult", type => type
+                .Creatable()
+                .Draftable()
+                .Listable()
                 .DisplayedAs("Error Result")
                 .WithPart("CommonPart", part => part
                     .WithSetting("DateEditorSettings.ShowDateEditor", "False")
@@ -107,6 +124,7 @@ namespace CSM.WebApi.Data
                 )
                 .WithPart("IdentityPart")
                 .WithPart("TitlePart")
+                .WithPart("BodyPart")
                 .WithPart("ErrorResultPart")
             );
 

@@ -1,0 +1,24 @@
+﻿<Placement>
+  <Match ContentType="Endpoint">
+    <Place Parts_Endpoint_Edit="Content:0"
+           Fields_ContentPicker_Edit-Parameters="Content:1"
+           Fields_ContentPicker_Edit-Returns="Content:2"/>
+  </Match>
+
+  <Match ContentType="EndpointParameter">
+    <Place Parts_EndpointParameter_Edit="Content:0" />
+  </Match>
+
+  <Match ContentType="EntityDefinition">
+    <Place Parts_EntityDefinition_Edit="Content:0"
+           Fields_ContentPicker_Edit-FieldDefinitions="Content:1"/>
+  </Match>
+
+  <Match ContentType="EntityField">
+    <Place Parts_EntityField_Edit="Content:0" />
+  </Match>
+
+  <Match ContentType="ErrorResult">
+    <Place Parts_ErrorResult_Edit="Content:0" />
+  </Match>
+</Placement>

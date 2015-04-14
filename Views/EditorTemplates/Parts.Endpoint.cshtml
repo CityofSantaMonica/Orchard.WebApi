@@ -1,0 +1,13 @@
+﻿@model CSM.WebApi.Models.EndpointPart
+
+<fieldset>
+    @Html.LabelFor(m => m.Verb, new { @class = "required" })
+    @Html.TextBoxFor(m => m.Verb, new { @class = "text small" })
+    <span class="hint">e.g. GET, POST</span>
+</fieldset>
+
+<fieldset>
+    @Html.LabelFor(m => m.ApiPath, T("API Path").Text, new { @class = "required" })
+    @Html.TextBoxFor(m => m.ApiPath, new { @class = "text large" })
+    <span class="hint">The (relative) path pattern where this endpoint is available</span>
+</fieldset>

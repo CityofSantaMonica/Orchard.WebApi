@@ -20,12 +20,5 @@ namespace CSM.WebApi.Models
             get { return this.Retrieve(x => x.DataType); }
             set { this.Store(x => x.DataType, value); }
         }
-
-        [Required]
-        public string Description
-        {
-            get { return this.Retrieve(x => x.Description); }
-            set { this.Store(x => x.Description, value); }
-        }
     }
 }

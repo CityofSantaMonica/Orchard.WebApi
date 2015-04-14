@@ -1,0 +1,6 @@
+﻿@model CSM.WebApi.Models.EntityDefinitionPart
+
+<fieldset>
+    @Html.LabelFor(m => m.ApiName, T("API Name").Text, new { @class = "required" })
+    @Html.TextBoxFor(m => m.ApiName, new { @class = "text medium" })
+</fieldset>
