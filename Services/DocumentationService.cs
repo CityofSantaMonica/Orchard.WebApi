@@ -4,6 +4,7 @@ using CSM.WebApi.ViewModels;
 using Orchard.ContentManagement;
 using Orchard.Core.Common.Models;
 using Orchard.Environment.Extensions;
+using Orchard.Fields.Fields;
 
 namespace CSM.WebApi.Services
 {
@@ -16,17 +17,20 @@ namespace CSM.WebApi.Services
                 Verb = part.Verb,
                 ApiPath = part.ApiPath,
 
-                EndpointParameters = part.GetContentPicker("Parameters")
-                                         .GetPickedContentAs<EndpointParameterPart>()
-                                         .Select(parameter => ToViewModel(parameter)),
+                Parameters = part.GetContentPicker("Parameters")
+                                 .GetPickedContentAs<EndpointParameterPart>()
+                                 .Select(parameter => ToViewModel(parameter)),
 
-                ReturnsEntityDefinitions = part.GetContentPicker("Returns")
-                                               .GetPickedContentAs<EntityDefinitionPart>()
-                                               .Select(entity => ToViewModel(entity)),
+                Returns = part.GetContentPicker("Returns")
+                              .GetPickedContentAs<EntityDefinitionPart>()
+                              .Select(entity => ToViewModel(entity))
+                              .SingleOrDefault(),
 
-                ReturnsErrorResults = part.GetContentPicker("Returns")
-                                          .GetPickedContentAs<ErrorResultPart>()
-                                          .Select(error => ToViewModel(error))
+                ReturnsAmount = ((EnumerationField)part.Get(typeof(EnumerationField), "ReturnsAmount")).Value,
+
+                Errors = part.GetContentPicker("Errors")
+                             .GetPickedContentAs<ErrorResultPart>()
+                             .Select(error => ToViewModel(error))
             };
 
             return viewModel;

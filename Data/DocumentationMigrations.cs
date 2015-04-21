@@ -43,9 +43,9 @@ namespace CSM.WebApi.Data
                     .OfType("ContentPickerField")
                     .WithDisplayName("Returns")
                     .WithSetting("ContentPickerFieldSettings.Required", "True")
-                    .WithSetting("ContentPickerFieldSettings.Multiple", "True")
+                    .WithSetting("ContentPickerFieldSettings.Multiple", "False")
                     .WithSetting("ContentPickerFieldSettings.ShowContentTab", "True")
-                    .WithSetting("ContentPickerFieldSettings.DisplayedContentTypes", "EntityDefinition,ErrorResult")
+                    .WithSetting("ContentPickerFieldSettings.DisplayedContentTypes", "EntityDefinition")
                 )
                 .WithField("ReturnsAmount", field => field
                     .OfType("EnumerationField")
@@ -53,6 +53,14 @@ namespace CSM.WebApi.Data
                     .WithSetting("EnumerationFieldSettings.Required", "True")
                     .WithSetting("EnumerationFieldSettings.ListMode", "Radiobutton")
                     .WithSetting("EnumerationFieldSettings.Options", "Single\r\nCollection")
+                )
+                .WithField("Errors", field => field
+                    .OfType("ContentPickerField")
+                    .WithDisplayName("Errors")
+                    .WithSetting("ContentPickerFieldSettings.Required", "False")
+                    .WithSetting("ContentPickerFieldSettings.Multiple", "True")
+                    .WithSetting("ContentPickerFieldSettings.ShowContentTab", "True")
+                    .WithSetting("ContentPickerFieldSettings.DisplayedContentTypes", "ErrorResult")
                 )
             );
 

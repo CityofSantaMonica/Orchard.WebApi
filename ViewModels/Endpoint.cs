@@ -1,8 +1,5 @@
-﻿using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using Orchard.ContentManagement;
-using Orchard.ContentPicker.Fields;
+﻿using System;
+using System.Collections.Generic;
 using Orchard.Environment.Extensions;
 
 namespace CSM.WebApi.ViewModels
@@ -14,10 +11,17 @@ namespace CSM.WebApi.ViewModels
 
         public string ApiPath { get; set; }
 
-        public IEnumerable<EntityDefinition> ReturnsEntityDefinitions { get; set; }
+        public string Heading
+        {
+            get { return String.Format("{0} {1}", Verb, ApiPath); }
+        }
 
-        public IEnumerable<ErrorResult> ReturnsErrorResults { get; set; }
+        public IEnumerable<EndpointParameter> Parameters { get; set; }
 
-        public IEnumerable<EndpointParameter> EndpointParameters { get; set; }
+        public EntityDefinition Returns { get; set; }
+
+        public string ReturnsAmount { get; set; }
+
+        public IEnumerable<ErrorResult> Errors { get; set; }
     }
 }
