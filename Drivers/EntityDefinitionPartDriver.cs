@@ -25,7 +25,8 @@ namespace CSM.WebApi.Drivers
         protected override DriverResult Display(EntityDefinitionPart part, string displayType, dynamic shapeHelper)
         {
             return Combined(
-                ContentShape("Parts_EntityDefinition", () => shapeHelper.Parts_EntityDefinition(EntityDefinition: _documentationService.ToViewModel(part))),
+                ContentShape("Parts_EntityDefinition", () => shapeHelper.Parts_EntityDefinition(ViewModel: _documentationService.ToViewModel(part))),
+                ContentShape("Parts_EntityDefinition_Summary", () => shapeHelper.Parts_EntityDefinition_Summary(ViewModel: _documentationService.ToViewModel(part))),
                 ContentShape("Parts_EntityDefinition_SummaryAdmin", () => shapeHelper.Parts_EntityDefinition_SummaryAdmin())
             );
         }
