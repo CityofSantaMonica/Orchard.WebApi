@@ -3,6 +3,7 @@ using CSM.WebApi.Models;
 using CSM.WebApi.ViewModels;
 using Orchard.ContentManagement;
 using Orchard.Core.Common.Models;
+using Orchard.Core.Title.Models;
 using Orchard.Environment.Extensions;
 using Orchard.Fields.Fields;
 
@@ -14,6 +15,7 @@ namespace CSM.WebApi.Services
         public Endpoint ToViewModel(EndpointPart part)
         {
             var viewModel = new Endpoint() {
+                Title = part.As<TitlePart>().Title,
                 Verb = part.Verb,
                 ApiPath = part.ApiPath,
 

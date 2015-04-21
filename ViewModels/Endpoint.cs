@@ -7,6 +7,8 @@ namespace CSM.WebApi.ViewModels
     [OrchardFeature("CSM.WebApi.Documentation")]
     public class Endpoint
     {
+        public string Title { get; set; }
+
         public string Verb { get; set; }
 
         public string ApiPath { get; set; }
