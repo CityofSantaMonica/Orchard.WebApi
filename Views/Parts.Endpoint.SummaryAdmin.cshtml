@@ -1,1 +1,15 @@
-﻿<h1>Endpoint SummaryAdmin</h1>
+﻿@using CSM.WebApi.Models
+
+@{
+    var part = Model.ContentPart as EndpointPart;
+}
+
+<p class="parts-endpoint">
+    <span class="name">Api Path:</span>
+    <span class="value">@part.ApiPath</span>
+</p>
+
+<p class="parts-endpoint">
+    <span class="name">Verb:</span>
+    <span class="value">@part.Verb</span>
+</p>

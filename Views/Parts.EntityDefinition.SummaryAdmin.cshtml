@@ -1,1 +1,10 @@
-﻿<h1>Entity Definition Summary Admin</h1>
+﻿@using CSM.WebApi.Models
+
+@{
+    var part = Model.ContentPart as EntityDefinitionPart;
+}
+
+<p class="entity-definition-part">
+    <span class="name">Api Name: </span>
+    <span class="value">@part.ApiName</span>
+</p>

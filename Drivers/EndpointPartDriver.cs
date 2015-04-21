@@ -25,10 +25,7 @@ namespace CSM.WebApi.Drivers
         protected override DriverResult Display(EndpointPart part, string displayType, dynamic shapeHelper)
         {
             return Combined(
-                ContentShape(
-                    "Parts_Endpoint",
-                    () => shapeHelper.Parts_Endpoint(Endpoint: _documentationService.ToViewModel(part))
-                ),
+                ContentShape("Parts_Endpoint", () => shapeHelper.Parts_Endpoint(Endpoint: _documentationService.ToViewModel(part))),
                 ContentShape("Parts_Endpoint_SummaryAdmin", () => shapeHelper.Parts_Endpoint_SummaryAdmin())
             );
         }
