@@ -4,9 +4,6 @@
            Fields_ContentPicker_Edit-Parameters="Content:1"
            Fields_ContentPicker_Edit-Returns="Content:2"
            Fields_Enumeration_Edit-ReturnsAmount="Content:3" />
-    <Match DisplayType="Detail">
-      <Place Parts_Endpoint="Content:0" />
-    </Match>
     <Match DisplayType="SummaryAdmin">
       <Place Parts_Endpoint_SummaryAdmin="Content:0" />
     </Match>
@@ -14,9 +11,6 @@
 
   <Match ContentType="EndpointParameter">
     <Place Parts_EndpointParameter_Edit="Content:0" />
-    <Match DisplayType="Detail">
-      <Place Parts_EndpointParameter="Content:0" />
-    </Match>
     <Match DisplayType="SummaryAdmin">
       <Place Parts_EndpointParameter_SummaryAdmin="Content:0" />
     </Match>
@@ -25,9 +19,6 @@
   <Match ContentType="EntityDefinition">
     <Place Parts_EntityDefinition_Edit="Content:0"
            Fields_ContentPicker_Edit-FieldDefinitions="Content:1"/>
-    <Match DisplayType="Detail">
-      <Place Parts_EntityDefinition="Content:0" />
-    </Match>
     <Match DisplayType="SummaryAdmin">
       <Place Parts_EntityDefinition_SummaryAdmin="Content:0" />
     </Match>
@@ -35,9 +26,6 @@
 
   <Match ContentType="EntityField">
     <Place Parts_EntityField_Edit="Content:0" />
-    <Match DisplayType="Detail">
-      <Place Parts_EntityField="Content:0" />
-    </Match>
     <Match DisplayType="SummaryAdmin">
       <Place Parts_EntityField_SummaryAdmin="Content:0" />
     </Match>
@@ -45,9 +33,6 @@
 
   <Match ContentType="ErrorResult">
     <Place Parts_ErrorResult_Edit="Content:0"/>
-    <Match DisplayType="Detail">
-      <Place Parts_ErrorResult="Content:0" />
-    </Match>
     <Match DisplayType="SummaryAdmin">
       <Place Parts_ErrorResult_SummaryAdmin="Content:0" />
     </Match>

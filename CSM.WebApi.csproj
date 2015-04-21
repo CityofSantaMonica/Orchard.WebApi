@@ -95,11 +95,6 @@
     <Content Include="Web.config" />
     <Content Include="Properties\AssemblyInfo.cs" />
     <Content Include="Module.txt" />
-    <Content Include="Views\Parts.EntityDefinition.cshtml" />
-    <Content Include="Views\Parts.EntityField.cshtml" />
-    <Content Include="Views\Parts.Endpoint.cshtml" />
-    <Content Include="Views\Parts.EndpointParameter.cshtml" />
-    <Content Include="Views\Parts.ErrorResult.cshtml" />
     <Content Include="Views\Parts.Endpoint.SummaryAdmin.cshtml" />
     <Content Include="Views\Parts.EndpointParameter.SummaryAdmin.cshtml" />
     <Content Include="Views\Parts.EntityDefinition.SummaryAdmin.cshtml" />
@@ -192,7 +187,7 @@
           <IISUrl>
           </IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
-          <UseCustomServer>True</UseCustomServer>
+          <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>http://orchard.codeplex.com</CustomServerUrl>
           <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
         </WebProjectProperties>
