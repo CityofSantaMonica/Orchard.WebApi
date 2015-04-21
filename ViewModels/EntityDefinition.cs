@@ -10,6 +10,14 @@ namespace CSM.WebApi.ViewModels
 
         public string Description { get; set; }
 
+        public string Heading
+        {
+            get
+            {
+                return ApiName;
+            }
+        }
+
         public IEnumerable<EntityField> EntityFields { get; set; }
     }
 }
