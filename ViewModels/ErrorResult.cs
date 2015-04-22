@@ -1,4 +1,5 @@
-﻿using Orchard.Environment.Extensions;
+﻿using System.Collections.Generic;
+using Orchard.Environment.Extensions;
 
 namespace CSM.WebApi.ViewModels
 {
@@ -10,5 +11,7 @@ namespace CSM.WebApi.ViewModels
         public string ReasonPhrase { get; set; }
 
         public string Description { get; set; }
+
+        public IEnumerable<Endpoint> AssociatedEndpoints { get; set; }
     }
 }

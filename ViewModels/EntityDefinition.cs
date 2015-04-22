@@ -6,6 +6,8 @@ namespace CSM.WebApi.ViewModels
     [OrchardFeature("CSM.WebApi.Documentation")]
     public class EntityDefinition
     {
+        public string Title { get; set; }
+
         public string ApiName { get; set; }
 
         public string Description { get; set; }
@@ -18,6 +20,8 @@ namespace CSM.WebApi.ViewModels
             }
         }
 
-        public IEnumerable<EntityField> EntityFields { get; set; }
+        public IEnumerable<EntityField> Fields { get; set; }
+
+        public IEnumerable<Endpoint> AssociatedEndpoints { get; set; }
     }
 }
