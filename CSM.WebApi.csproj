@@ -132,6 +132,7 @@
     <Compile Include="Drivers\EntityFieldPartDriver.cs" />
     <Compile Include="Filters\CompressResponseAttribute.cs" />
     <Compile Include="Filters\ModelValidationAttribute.cs" />
+    <Compile Include="Handlers\EndpointPartHandler.cs" />
     <Compile Include="Models\EntityDefinitionPart.cs" />
     <Compile Include="Models\EntityFieldPart.cs" />
     <Compile Include="Models\ErrorResultPart.cs" />
@@ -143,7 +144,7 @@
     <Compile Include="Filters\RequirePermissionsAttribute.cs" />
     <Compile Include="BasicAuthenticationCredentials.cs" />
     <Compile Include="Services\BasicAuthenticationService.cs" />
-    <Compile Include="Services\ContentItemExtensions.cs" />
+    <Compile Include="Extensions\ContentItemExtensions.cs" />
     <Compile Include="Services\DocumentationService.cs" />
     <Compile Include="Services\IBasicAuthenticationService.cs" />
     <Compile Include="Services\IDocumentationService.cs" />

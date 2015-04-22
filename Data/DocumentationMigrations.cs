@@ -10,23 +10,11 @@ namespace CSM.WebApi.Data
     {
         public int Create()
         {
-            ContentDefinitionManager.AlterPartDefinition("EndpointParameterPart", part => part
-                .Attachable(false)
-            );
-
-            ContentDefinitionManager.AlterTypeDefinition("EndpointParameter", type => type
-                .Creatable()
-                .Draftable()
-                .Listable()
-                .DisplayedAs("Endpoint Parameter")
-                .WithPart("CommonPart", part => part
-                    .WithSetting("DateEditorSettings.ShowDateEditor", "False")
-                    .WithSetting("OwnerEditorSettings.ShowOwnerEditor", "False")
-                )
-                .WithPart("IdentityPart")
-                .WithPart("TitlePart")
-                .WithPart("BodyPart")
-                .WithPart("EndpointParameterPart")
+            SchemaBuilder.CreateTable("EndpointPartRecord", table => table
+                .ContentPartVersionRecord()
+                .Column<string>("SelectedParameterIds", col => col.WithLength(255))
+                .Column<int>("SelectedEntityId")
+                .Column<string>("SelectedErrorIds", col => col.WithLength(255))
             );
 
             ContentDefinitionManager.AlterPartDefinition("EndpointPart", part => part
@@ -76,6 +64,25 @@ namespace CSM.WebApi.Data
                 .WithPart("IdentityPart")
                 .WithPart("TitlePart")
                 .WithPart("EndpointPart")
+            );
+
+            ContentDefinitionManager.AlterPartDefinition("EndpointParameterPart", part => part
+                .Attachable(false)
+            );
+
+            ContentDefinitionManager.AlterTypeDefinition("EndpointParameter", type => type
+                .Creatable()
+                .Draftable()
+                .Listable()
+                .DisplayedAs("Endpoint Parameter")
+                .WithPart("CommonPart", part => part
+                    .WithSetting("DateEditorSettings.ShowDateEditor", "False")
+                    .WithSetting("OwnerEditorSettings.ShowOwnerEditor", "False")
+                )
+                .WithPart("IdentityPart")
+                .WithPart("TitlePart")
+                .WithPart("BodyPart")
+                .WithPart("EndpointParameterPart")
             );
 
             ContentDefinitionManager.AlterPartDefinition("EntityDefinitionPart", part => part

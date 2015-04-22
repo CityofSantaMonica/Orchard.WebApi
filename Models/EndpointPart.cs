@@ -1,24 +1,33 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using Orchard.ContentManagement;
+using Orchard.ContentManagement.Records;
 using Orchard.Environment.Extensions;
 
 namespace CSM.WebApi.Models
 {
     [OrchardFeature("CSM.WebApi.Documentation")]
-    public class EndpointPart : ContentPart
+    public class EndpointPartRecord : ContentPartRecord
     {
-        [Required]
-        public string Verb
-        {
-            get { return this.Retrieve(x => x.Verb); }
-            set { this.Store(x => x.Verb, value); }
-        }
+        public virtual int SelectedEntityId { get; set; }
+        public virtual string SelectedErrorIds { get; set; }
+        public virtual string SelectedParameterIds { get; set; }
+    }
 
+    [OrchardFeature("CSM.WebApi.Documentation")]
+    public class EndpointPart : ContentPart<EndpointPartRecord>
+    {
         [Required]
         public string ApiPath
         {
             get { return this.Retrieve(x => x.ApiPath); }
             set { this.Store(x => x.ApiPath, value); }
+        }
+
+        [Required]
+        public string Verb
+        {
+            get { return this.Retrieve(x => x.Verb); }
+            set { this.Store(x => x.Verb, value); }
         }
     }
 }

@@ -4,7 +4,7 @@ using Orchard.ContentManagement;
 using Orchard.ContentPicker.Fields;
 using Orchard.Environment.Extensions;
 
-namespace CSM.WebApi.Services
+namespace CSM.WebApi.Extensions
 {
     [OrchardFeature("CSM.WebApi.Documentation")]
     public static class ContentItemExtensions
