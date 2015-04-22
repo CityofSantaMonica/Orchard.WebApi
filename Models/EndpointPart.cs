@@ -8,7 +8,7 @@ namespace CSM.WebApi.Models
     [OrchardFeature("CSM.WebApi.Documentation")]
     public class EndpointPartRecord : ContentPartRecord
     {
-        public virtual int SelectedEntityId { get; set; }
+        public virtual string SelectedEntityId { get; set; }
         public virtual string SelectedErrorIds { get; set; }
         public virtual string SelectedParameterIds { get; set; }
     }

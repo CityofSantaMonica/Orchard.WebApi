@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using Orchard.ContentManagement;
 using Orchard.ContentPicker.Fields;
@@ -7,7 +8,7 @@ using Orchard.Environment.Extensions;
 namespace CSM.WebApi.Extensions
 {
     [OrchardFeature("CSM.WebApi.Documentation")]
-    public static class ContentItemExtensions
+    public static class ContentPickerExtensions
     {
         internal static ContentPickerField GetContentPicker(this ContentPart part, string fieldName)
         {
@@ -22,6 +23,27 @@ namespace CSM.WebApi.Extensions
             }
 
             return Enumerable.Empty<T>();
+        }
+
+        internal static string SerializeIds(this ContentPickerField picker)
+        {
+            if (picker == null)
+                return String.Empty;
+
+            return picker.Ids.SerializeIds();
+        }
+
+        internal static string SerializeIds(this IEnumerable<int> ids)
+        {
+            if (ids == null || !ids.Any())
+                return String.Empty;
+
+            return String.Join(",", ids.OrderBy(i => i).Select(i => i.SerializeId()));
+        }
+
+        internal static string SerializeId(this int id)
+        {
+            return String.Format("{{{0}}}", id);
         }
     }
 }

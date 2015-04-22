@@ -12,9 +12,9 @@ namespace CSM.WebApi.Data
         {
             SchemaBuilder.CreateTable("EndpointPartRecord", table => table
                 .ContentPartVersionRecord()
-                .Column<string>("SelectedParameterIds", col => col.WithLength(255))
-                .Column<int>("SelectedEntityId")
+                .Column<string>("SelectedEntityId", col => col.WithLength(255))
                 .Column<string>("SelectedErrorIds", col => col.WithLength(255))
+                .Column<string>("SelectedParameterIds", col => col.WithLength(255))
             );
 
             ContentDefinitionManager.AlterPartDefinition("EndpointPart", part => part
