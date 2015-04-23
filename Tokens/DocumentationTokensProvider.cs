@@ -32,7 +32,7 @@ namespace CSM.WebApi.Tokens
 
             describe
                 .Token("Current", T("Current"), T("The current {0}", name))
-                .Token("Current:*", T("Current:<value>"), T("The value from the current {0}", name), "Current")
+                .Token("Current:*", T("Current:<value>"), T("The value (as String) from the current {0}'s InfoSet", name), "Current")
                 ;
         }
 
@@ -42,7 +42,7 @@ namespace CSM.WebApi.Tokens
                 .Token("Current", part => part)
                 .Token(
                     token => token.StartsWith("Current:", StringComparison.OrdinalIgnoreCase) ? token.Substring("Current:".Length) : null,
-                    (token, part) => part == null ? null : part.Retrieve<object>(token)
+                    (token, part) => part == null ? null : part.Retrieve<string>(token)
                 );
         }
 
@@ -58,7 +58,7 @@ namespace CSM.WebApi.Tokens
                 describe.Token(
                     encodingContext.Token,
                     T(encodingContext.Token.Replace("*", "<value>")),
-                    T("A value from the {0} {1}", titlePart.Title, typeof(TPart).Name)
+                    T("A value (as String) from the {0} {1}'s InfoSet", titlePart.Title, typeof(TPart).Name)
                 );
             }
         }
@@ -75,7 +75,7 @@ namespace CSM.WebApi.Tokens
                     if (part == null)
                         return null;
 
-                    return part.Retrieve<object>(tokenParts.SubToken);
+                    return part.Retrieve<string>(tokenParts.SubToken);
                 });
         }
 
