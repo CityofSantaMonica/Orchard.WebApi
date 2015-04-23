@@ -16,7 +16,7 @@ namespace CSM.WebApi.Tokens
 
         public void Describe(DescribeContext context)
         {
-            var describe = context.For("EntityFields", T("EntityFieldParts"), T("Tokens for EntityFields"));
+            var describe = context.For("EntityFields", T("EntityFields"), T("Tokens for EntityFields"));
             DescribeCurrentTokens(describe);
             DescribeAutoTokens(describe);
         }

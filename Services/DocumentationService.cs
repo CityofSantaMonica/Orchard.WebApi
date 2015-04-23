@@ -84,7 +84,7 @@ namespace CSM.WebApi.Services
             var viewModel = new EndpointParameter() {
                 ApiName = part.ApiName,
                 DataType = part.DataType,
-                Description = part.As<BodyPart>().Text,
+                Description = _tokenizer.Replace(part.As<BodyPart>().Text, tokenState),
                 Example = _tokenizer.Replace(part.Example, tokenState),
                 Required = part.Required,
                 AssociatedEndpoints = GetAssociatedEndpoints(part).Select(ToViewModel)
@@ -95,10 +95,12 @@ namespace CSM.WebApi.Services
 
         public EntityDefinition ToViewModel(EntityDefinitionPart part)
         {
+            var tokenState = new Dictionary<string, object> { { "Content", part.ContentItem } };
+
             var viewModel = new EntityDefinition() {
                 Title = part.As<TitlePart>().Title,
                 ApiName = part.ApiName,
-                Description = part.As<BodyPart>().Text,
+                Description = _tokenizer.Replace(part.As<BodyPart>().Text, tokenState),
                 Fields = part.GetContentPicker("FieldDefinitions")
                                    .GetPickedContentAs<EntityFieldPart>()
                                    .Select(ToViewModel),
@@ -110,10 +112,12 @@ namespace CSM.WebApi.Services
 
         public EntityField ToViewModel(EntityFieldPart part)
         {
+            var tokenState = new Dictionary<string, object> { { "Content", part.ContentItem } };
+
             var viewModel = new EntityField() {
                 ApiName = part.ApiName,
                 DataType = part.DataType,
-                Description = part.As<BodyPart>().Text
+                Description = _tokenizer.Replace(part.As<BodyPart>().Text, tokenState)
             };
 
             return viewModel;
@@ -125,7 +129,7 @@ namespace CSM.WebApi.Services
 
             var viewModel = new ErrorResult() {
                 Code = part.Code.Value,
-                Description = part.As<BodyPart>().Text,
+                Description = _tokenizer.Replace(part.As<BodyPart>().Text, tokenState),
                 ReasonPhrase = _tokenizer.Replace(part.ReasonPhrase, tokenState),
                 AssociatedEndpoints = GetAssociatedEndpoints(part).Select(ToViewModel)
             };
