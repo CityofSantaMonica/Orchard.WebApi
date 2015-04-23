@@ -29,5 +29,12 @@ namespace CSM.WebApi.Models
             get { return this.Retrieve(x => x.Verb); }
             set { this.Store(x => x.Verb, value); }
         }
+
+        [Required]
+        public string Description
+        {
+            get { return this.Retrieve(x => x.Description); }
+            set { this.Store(x => x.Description, value); }
+        }
     }
 }

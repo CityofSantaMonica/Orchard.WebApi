@@ -11,3 +11,8 @@
     @Html.TextBoxFor(m => m.ApiPath, new { @class = "text large" })
     <span class="hint">The (relative) path pattern where this endpoint is available</span>
 </fieldset>
+
+<fieldset>
+    @Html.LabelFor(m => m.Description, T("Short Description").Text, new { @class = "required" })
+    @Html.TextBoxFor(m => m.Description, new { @class = "text large" })
+</fieldset>

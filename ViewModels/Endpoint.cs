@@ -7,11 +7,11 @@ namespace CSM.WebApi.ViewModels
     [OrchardFeature("CSM.WebApi.Documentation")]
     public class Endpoint
     {
-        public string Title { get; set; }
-
-        public string Verb { get; set; }
-
         public string ApiPath { get; set; }
+
+        public string Description { get; set; }
+
+        public IEnumerable<ErrorResult> Errors { get; set; }
 
         public string Heading
         {
@@ -24,6 +24,8 @@ namespace CSM.WebApi.ViewModels
 
         public string ReturnsAmount { get; set; }
 
-        public IEnumerable<ErrorResult> Errors { get; set; }
+        public string Title { get; set; }
+
+        public string Verb { get; set; }
     }
 }

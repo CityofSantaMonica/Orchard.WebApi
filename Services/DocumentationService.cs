@@ -54,18 +54,18 @@ namespace CSM.WebApi.Services
 
                 Parameters = part.GetContentPicker("Parameters")
                                  .GetPickedContentAs<EndpointParameterPart>()
-                                 .Select(parameter => ToViewModel(parameter)),
+                                 .Select(ToViewModel),
 
                 Returns = part.GetContentPicker("Returns")
                               .GetPickedContentAs<EntityDefinitionPart>()
-                              .Select(entity => ToViewModel(entity))
+                              .Select(ToViewModel)
                               .SingleOrDefault(),
 
                 ReturnsAmount = ((EnumerationField)part.Get(typeof(EnumerationField), "ReturnsAmount")).Value,
 
                 Errors = part.GetContentPicker("Errors")
                              .GetPickedContentAs<ErrorResultPart>()
-                             .Select(error => ToViewModel(error))
+                             .Select(ToViewModel)
             };
 
             return viewModel;
@@ -93,7 +93,7 @@ namespace CSM.WebApi.Services
                 Description = part.As<BodyPart>().Text,
                 Fields = part.GetContentPicker("FieldDefinitions")
                                    .GetPickedContentAs<EntityFieldPart>()
-                                   .Select(field => ToViewModel(field)),
+                                   .Select(ToViewModel),
                 AssociatedEndpoints = GetAssociatedEndpoints(part).Select(ToViewModel)
             };
 
