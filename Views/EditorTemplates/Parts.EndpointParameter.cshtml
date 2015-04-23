@@ -20,5 +20,7 @@
 
 <fieldset>
     @Html.LabelFor(m => m.Example)
-    @Html.TextBoxFor(m => m.Example, new { @class = "text medium" })
+    @Html.TextBoxFor(m => m.Example, new { @class = "text medium tokenized" })
 </fieldset>
+
+@Display.TokenHint()

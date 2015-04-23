@@ -8,11 +8,13 @@
 
 <fieldset>
     @Html.LabelFor(m => m.ApiPath, T("API Path").Text, new { @class = "required" })
-    @Html.TextBoxFor(m => m.ApiPath, new { @class = "text large" })
+    @Html.TextBoxFor(m => m.ApiPath, new { @class = "text large tokenized" })
     <span class="hint">The (relative) path pattern where this endpoint is available</span>
 </fieldset>
 
 <fieldset>
     @Html.LabelFor(m => m.Description, T("Short Description").Text, new { @class = "required" })
-    @Html.TextBoxFor(m => m.Description, new { @class = "text large" })
+    @Html.TextBoxFor(m => m.Description, new { @class = "text large tokenized" })
 </fieldset>
+
+@Display.TokenHint()

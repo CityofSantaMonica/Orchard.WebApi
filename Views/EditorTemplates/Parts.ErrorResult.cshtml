@@ -2,12 +2,14 @@
 
 <fieldset>
     @Html.LabelFor(m => m.Code, new { @class = "required" })
-    @Html.TextBoxFor(m => m.Code, new { @class = "text small" })
+    @Html.TextBoxFor(m => m.Code, new { required = "required", @class = "text small" })
     <span class="hint">e.g. 400, 401</span>
 </fieldset>
 
 <fieldset>
     @Html.LabelFor(m => m.ReasonPhrase, T("Reason Phrase").Text, new { @class = "required" })
-    @Html.TextBoxFor(m => m.ReasonPhrase, new { @class = "text medium" })
-    <span class="hint">e.g. BadRequest</span>
+    @Html.TextBoxFor(m => m.ReasonPhrase, new { required = "required", @class = "text medium tokenized" })
+    <span class="hint">e.g. Bad Request</span>
 </fieldset>
+
+@Display.TokenHint()

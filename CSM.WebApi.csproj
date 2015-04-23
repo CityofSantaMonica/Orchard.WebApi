@@ -122,6 +122,10 @@
       <Name>Orchard.Fields</Name>
       <Private>False</Private>
     </ProjectReference>
+    <ProjectReference Include="..\Orchard.Tokens\Orchard.Tokens.csproj">
+      <Project>{6f759635-13d7-4e94-bcc9-80445d63f117}</Project>
+      <Name>Orchard.Tokens</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Data\DocumentationMigrations.cs" />
@@ -148,6 +152,14 @@
     <Compile Include="Services\DocumentationService.cs" />
     <Compile Include="Services\IBasicAuthenticationService.cs" />
     <Compile Include="Services\IDocumentationService.cs" />
+    <Compile Include="Services\ITokenEncoder.cs" />
+    <Compile Include="Tokens\DocumentationTokensProvider.cs" />
+    <Compile Include="Tokens\EndpointParameterTokensProvider.cs" />
+    <Compile Include="Tokens\EndpointTokensProvider.cs" />
+    <Compile Include="Tokens\EntityDefinitionTokensProvider.cs" />
+    <Compile Include="Tokens\EntityFieldTokensProvider.cs" />
+    <Compile Include="Tokens\ErrorResultTokensProvider.cs" />
+    <Compile Include="Services\TokenEncoder.cs" />
     <Compile Include="ViewModels\EndpointParameter.cs" />
     <Compile Include="ViewModels\Endpoint.cs" />
     <Compile Include="ViewModels\EntityDefinition.cs" />
