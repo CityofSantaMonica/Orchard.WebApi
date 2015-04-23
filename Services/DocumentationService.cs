@@ -8,6 +8,7 @@ using Orchard.Core.Common.Models;
 using Orchard.Core.Title.Models;
 using Orchard.Environment.Extensions;
 using Orchard.Fields.Fields;
+using Orchard.Tokens;
 
 namespace CSM.WebApi.Services
 {
@@ -15,10 +16,12 @@ namespace CSM.WebApi.Services
     public class DocumentationService : IDocumentationService
     {
         private readonly IContentManager _contentManager;
+        private readonly ITokenizer _tokenizer;
 
-        public DocumentationService(IContentManager contentManager)
+        public DocumentationService(IContentManager contentManager, ITokenizer tokenizer)
         {
             _contentManager = contentManager;
+            _tokenizer = tokenizer;
         }
 
         public IEnumerable<EndpointPart> GetAssociatedEndpoints(EndpointParameterPart parameter)
@@ -47,10 +50,13 @@ namespace CSM.WebApi.Services
 
         public Endpoint ToViewModel(EndpointPart part)
         {
+            var tokenState = new Dictionary<string, object> { { "Content", part.ContentItem } };
+
             var viewModel = new Endpoint() {
+                ApiPath = _tokenizer.Replace(part.ApiPath, tokenState),
+                Description = _tokenizer.Replace(part.Description, tokenState),
                 Title = part.As<TitlePart>().Title,
                 Verb = part.Verb,
-                ApiPath = part.ApiPath,
 
                 Parameters = part.GetContentPicker("Parameters")
                                  .GetPickedContentAs<EndpointParameterPart>()
@@ -73,11 +79,13 @@ namespace CSM.WebApi.Services
 
         public EndpointParameter ToViewModel(EndpointParameterPart part)
         {
+            var tokenState = new Dictionary<string, object> { { "Content", part.ContentItem } };
+
             var viewModel = new EndpointParameter() {
                 ApiName = part.ApiName,
                 DataType = part.DataType,
                 Description = part.As<BodyPart>().Text,
-                Example = part.Example,
+                Example = _tokenizer.Replace(part.Example, tokenState),
                 Required = part.Required,
                 AssociatedEndpoints = GetAssociatedEndpoints(part).Select(ToViewModel)
             };
@@ -113,10 +121,12 @@ namespace CSM.WebApi.Services
 
         public ErrorResult ToViewModel(ErrorResultPart part)
         {
+            var tokenState = new Dictionary<string, object> { { "Content", part.ContentItem } };
+
             var viewModel = new ErrorResult() {
                 Code = part.Code.Value,
                 Description = part.As<BodyPart>().Text,
-                ReasonPhrase = part.ReasonPhrase,
+                ReasonPhrase = _tokenizer.Replace(part.ReasonPhrase, tokenState),
                 AssociatedEndpoints = GetAssociatedEndpoints(part).Select(ToViewModel)
             };
 
