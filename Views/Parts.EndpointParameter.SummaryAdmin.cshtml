@@ -1,0 +1,20 @@
+﻿@using CSM.WebApi.Models
+
+@{
+    var part = Model.ContentPart as EndpointParameterPart;
+}
+
+<p class="endpoint-parameter-part">
+    <span class="name">Api Name:</span>
+    <span class="value">@part.ApiName</span>
+</p>
+
+<p class="endpoint-parameter-part">
+    <span class="name">Data Type:</span>
+    <span class="value">@part.DataType</span>
+</p>
+
+<p class="endpoint-parameter-part">
+    <span class="name">Required?</span>
+    <span class="value">@part.Required</span>
+</p>

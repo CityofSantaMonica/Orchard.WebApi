@@ -1,0 +1,40 @@
+﻿<Placement>
+  <Match ContentType="Endpoint">
+    <Place Parts_Endpoint_Edit="Content:0"
+           Fields_ContentPicker_Edit-Parameters="Content:1"
+           Fields_ContentPicker_Edit-Returns="Content:2"
+           Fields_Enumeration_Edit-ReturnsAmount="Content:3" />
+    <Match DisplayType="SummaryAdmin">
+      <Place Parts_Endpoint_SummaryAdmin="Content:0" />
+    </Match>
+  </Match>
+
+  <Match ContentType="EndpointParameter">
+    <Place Parts_EndpointParameter_Edit="Content:0" />
+    <Match DisplayType="SummaryAdmin">
+      <Place Parts_EndpointParameter_SummaryAdmin="Content:0" />
+    </Match>
+  </Match>
+
+  <Match ContentType="EntityDefinition">
+    <Place Parts_EntityDefinition_Edit="Content:0"
+           Fields_ContentPicker_Edit-FieldDefinitions="Content:1"/>
+    <Match DisplayType="SummaryAdmin">
+      <Place Parts_EntityDefinition_SummaryAdmin="Content:0" />
+    </Match>
+  </Match>
+
+  <Match ContentType="EntityField">
+    <Place Parts_EntityField_Edit="Content:0" />
+    <Match DisplayType="SummaryAdmin">
+      <Place Parts_EntityField_SummaryAdmin="Content:0" />
+    </Match>
+  </Match>
+
+  <Match ContentType="ErrorResult">
+    <Place Parts_ErrorResult_Edit="Content:0"/>
+    <Match DisplayType="SummaryAdmin">
+      <Place Parts_ErrorResult_SummaryAdmin="Content:0" />
+    </Match>
+  </Match>
+</Placement>

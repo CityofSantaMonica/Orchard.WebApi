@@ -93,14 +93,18 @@ namespace CSM.WebApi.Filters
                 return null;
             }
 
+            byte[] compressed = null;
+
             using (var output = new MemoryStream())
             {
                 dynamic compressor = compressors[encoding](output);
 
                 compressor.Write(bytes, 0, bytes.Length);
 
-                return output.ToArray();
+                compressed = output.ToArray();
             }
+
+            return compressed;
         }
     }
 }

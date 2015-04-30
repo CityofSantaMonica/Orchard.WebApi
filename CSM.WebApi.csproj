@@ -76,30 +76,96 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Placement.info" />
+    <Content Include="Views\EditorTemplates\Parts.Endpoint.cshtml">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="Views\EditorTemplates\Parts.EndpointParameter.cshtml">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="Views\EditorTemplates\Parts.EntityDefinition.cshtml">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="Views\EditorTemplates\Parts.EntityField.cshtml">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="Views\EditorTemplates\Parts.ErrorResult.cshtml">
+      <SubType>Code</SubType>
+    </Content>
     <Content Include="Web.config" />
     <Content Include="Properties\AssemblyInfo.cs" />
     <Content Include="Module.txt" />
+    <Content Include="Views\Parts.Endpoint.SummaryAdmin.cshtml" />
+    <Content Include="Views\Parts.EndpointParameter.SummaryAdmin.cshtml" />
+    <Content Include="Views\Parts.EntityDefinition.SummaryAdmin.cshtml" />
+    <Content Include="Views\Parts.EntityField.SummaryAdmin.cshtml" />
+    <Content Include="Views\Parts.ErrorResult.SummaryAdmin.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\..\Orchard\Orchard.Framework.csproj">
       <Project>{2D1D92BB-4555-4CBE-8D0E-63563D6CE4C6}</Project>
       <Name>Orchard.Framework</Name>
+      <Private>False</Private>
     </ProjectReference>
     <ProjectReference Include="..\..\Core\Orchard.Core.csproj">
       <Project>{9916839C-39FC-4CEB-A5AF-89CA7E87119F}</Project>
       <Name>Orchard.Core</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\Orchard.ContentPicker\Orchard.ContentPicker.csproj">
+      <Project>{f301ef7d-f19c-4d83-aa94-cb64f29c037d}</Project>
+      <Name>Orchard.ContentPicker</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\Orchard.Fields\Orchard.Fields.csproj">
+      <Project>{3787dde5-e5c8-4841-bda7-dcb325388064}</Project>
+      <Name>Orchard.Fields</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\Orchard.Tokens\Orchard.Tokens.csproj">
+      <Project>{6f759635-13d7-4e94-bcc9-80445d63f117}</Project>
+      <Name>Orchard.Tokens</Name>
+      <Private>False</Private>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Data\DocumentationMigrations.cs" />
+    <Compile Include="Drivers\EndpointPartDriver.cs" />
+    <Compile Include="Drivers\EndpointParameterPartDriver.cs" />
+    <Compile Include="Drivers\ErrorResultPartDriver.cs" />
+    <Compile Include="Drivers\EntityDefinitionPartDriver.cs" />
+    <Compile Include="Drivers\EntityFieldPartDriver.cs" />
     <Compile Include="Filters\CompressResponseAttribute.cs" />
     <Compile Include="Filters\ModelValidationAttribute.cs" />
-    <Compile Include="Models\AddChallengeOnUnauthorizedResult.cs" />
-    <Compile Include="Models\AuthenticationFailureResult.cs" />
+    <Compile Include="Handlers\EndpointPartHandler.cs" />
+    <Compile Include="Models\EntityDefinitionPart.cs" />
+    <Compile Include="Models\EntityFieldPart.cs" />
+    <Compile Include="Models\ErrorResultPart.cs" />
+    <Compile Include="Models\EndpointParameterPart.cs" />
+    <Compile Include="Models\EndpointPart.cs" />
+    <Compile Include="Results\AddChallengeOnUnauthorizedResult.cs" />
+    <Compile Include="Results\AuthenticationFailureResult.cs" />
     <Compile Include="Filters\RequireBasicAuthenticationAttribute.cs" />
     <Compile Include="Filters\RequirePermissionsAttribute.cs" />
-    <Compile Include="Models\BasicAuthenticationCredentials.cs" />
+    <Compile Include="BasicAuthenticationCredentials.cs" />
     <Compile Include="Services\BasicAuthenticationService.cs" />
+    <Compile Include="Extensions\ContentPickerExtensions.cs" />
+    <Compile Include="Services\DocumentationService.cs" />
     <Compile Include="Services\IBasicAuthenticationService.cs" />
+    <Compile Include="Services\IDocumentationService.cs" />
+    <Compile Include="Services\ITokenEncoder.cs" />
+    <Compile Include="Tokens\DocumentationTokensProvider.cs" />
+    <Compile Include="Tokens\EndpointParameterTokensProvider.cs" />
+    <Compile Include="Tokens\EndpointTokensProvider.cs" />
+    <Compile Include="Tokens\EntityDefinitionTokensProvider.cs" />
+    <Compile Include="Tokens\EntityFieldTokensProvider.cs" />
+    <Compile Include="Tokens\ErrorResultTokensProvider.cs" />
+    <Compile Include="Services\TokenEncoder.cs" />
+    <Compile Include="ViewModels\EndpointParameter.cs" />
+    <Compile Include="ViewModels\Endpoint.cs" />
+    <Compile Include="ViewModels\EntityDefinition.cs" />
+    <Compile Include="ViewModels\EntityField.cs" />
+    <Compile Include="ViewModels\ErrorResult.cs" />
   </ItemGroup>
   <ItemGroup />
   <PropertyGroup>
@@ -139,7 +205,7 @@
           <IISUrl>
           </IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
-          <UseCustomServer>True</UseCustomServer>
+          <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>http://orchard.codeplex.com</CustomServerUrl>
           <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
         </WebProjectProperties>

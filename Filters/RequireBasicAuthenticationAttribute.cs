@@ -4,7 +4,7 @@ using System.Net.Http.Headers;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Web.Http.Filters;
-using CSM.WebApi.Models;
+using CSM.WebApi.Results;
 using CSM.WebApi.Services;
 using Orchard;
 using Orchard.Environment.Extensions;

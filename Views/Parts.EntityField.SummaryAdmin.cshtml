@@ -1,0 +1,15 @@
+﻿@using CSM.WebApi.Models
+
+@{
+    var part = Model.ContentPart as EntityFieldPart;
+}
+
+<p class="entity-field-part">
+    <span class="name">Api Name: </span>
+    <span class="value">@part.ApiName</span>
+</p>
+
+<p class="entity-field-part">
+    <span class="name">Data Type: </span>
+    <span class="value">@part.DataType</span>
+</p>

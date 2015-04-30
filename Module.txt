@@ -1,15 +1,22 @@
 ﻿Name: CSM.WebApi
 AntiForgery: enabled
 Author: City of Santa Monica
-Website: https://github.com/CityofSantaMonica
-Version: 1.x
-OrchardVersion: 1.x
-Category: WebApi
+Website: https://github.com/CityofSantaMonica/Orchard.WebApi
+Version: 1.0
+OrchardVersion: 1.9
+Category: Api
 Features:
     CSM.WebApi:
+        Name: CSM.WebApi
         Description: Helpers and services for creating Web Apis.
         Category: Api
+    CSM.WebApi.Documentation:
+        Name: CSM.WebApi.Documentation
+        Description: Definitions supporting the creation of Web Api documentation.
+        Category: Content
+        Dependencies: CSM.WebApi, Orchard.ContentPicker, Orchard.Fields, Orchard.Tokens
     CSM.WebApi.Security:
+        Name: CSM.WebApi.Security
         Description: Supports authentication scenarios and securable resources.
         Category: Security
         Dependencies: CSM.WebApi

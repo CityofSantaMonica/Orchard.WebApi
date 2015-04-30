@@ -1,0 +1,26 @@
+﻿@model CSM.WebApi.Models.EndpointParameterPart
+
+<fieldset>
+    @Html.LabelFor(m => m.ApiName, T("API Name").Text, new { @class = "required" })
+    @Html.TextBoxFor(m => m.ApiName, new { @class = "text medium" })
+</fieldset>
+
+<fieldset>
+    @Html.LabelFor(m => m.DataType, T("Data Type").Text, new { @class = "required" })
+    @Html.TextBoxFor(m => m.DataType, new { @class = "text medium" })
+</fieldset>
+
+<fieldset>
+    @Html.LabelFor(m => m.Required, new { @class = "required" })
+    <ul>
+        <li>@Html.RadioButtonFor(m => m.Required, false) @T("No")</li>
+        <li>@Html.RadioButtonFor(m => m.Required, true) @T("Yes")</li>
+    </ul>
+</fieldset>
+
+<fieldset>
+    @Html.LabelFor(m => m.Example)
+    @Html.TextBoxFor(m => m.Example, new { @class = "text medium tokenized" })
+</fieldset>
+
+@Display.TokenHint()

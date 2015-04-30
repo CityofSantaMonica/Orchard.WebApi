@@ -1,0 +1,15 @@
+﻿@using CSM.WebApi.Models
+
+@{
+    var part = Model.ContentPart as ErrorResultPart;
+}
+
+<p class="entity-field-part">
+    <span class="name">Code: </span>
+    <span class="value">@part.Code</span>
+</p>
+
+<p class="entity-field-part">
+    <span class="name">Reason: </span>
+    <span class="value">@part.ReasonPhrase</span>
+</p>
