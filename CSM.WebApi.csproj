@@ -136,6 +136,7 @@
     <Compile Include="Drivers\EntityDefinitionPartDriver.cs" />
     <Compile Include="Drivers\EntityFieldPartDriver.cs" />
     <Compile Include="Filters\CompressResponseAttribute.cs" />
+    <Compile Include="Filters\EnableGlobalCors.cs" />
     <Compile Include="Filters\ModelValidationAttribute.cs" />
     <Compile Include="Handlers\EndpointPartHandler.cs" />
     <Compile Include="Models\EntityDefinitionPart.cs" />
